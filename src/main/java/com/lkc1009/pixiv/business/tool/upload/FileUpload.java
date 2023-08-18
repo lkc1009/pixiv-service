@@ -28,7 +28,7 @@ public class FileUpload {
             String targetPath = webAppFolder + "/" + FileConstant.UPLOAD_FOLDER;
             String targetFile = targetPath + "/" + newFileName + "." + ext;
 
-            new File(targetPath).mkdirs();
+            boolean fileSave = new File(targetPath).mkdirs();
 
             try {
                 String urlPath = FileConstant.URL_SERVER + "/" + FileConstant.UPLOAD_FOLDER + "/" + newFileName + "." + ext;

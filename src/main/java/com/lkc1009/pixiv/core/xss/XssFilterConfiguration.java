@@ -11,7 +11,7 @@ public class XssFilterConfiguration {
     public FilterRegistrationBean<XssFilter> filterRegistrationBean() {
         FilterRegistrationBean<XssFilter> filterRegistrationBean = new FilterRegistrationBean<>(new XssFilter());
         filterRegistrationBean.addUrlPatterns("/*");
-        filterRegistrationBean.setName("xssFilter");
+        filterRegistrationBean.setName("XssFilter");
         filterRegistrationBean.setOrder(1);
         return filterRegistrationBean;
     }

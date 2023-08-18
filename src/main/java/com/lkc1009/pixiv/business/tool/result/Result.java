@@ -1,6 +1,8 @@
 package com.lkc1009.pixiv.business.tool.result;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -10,15 +12,20 @@ import org.jetbrains.annotations.NotNull;
 import java.io.Serial;
 import java.io.Serializable;
 
+@Getter
 @Setter
 @NoArgsConstructor
 @Accessors(chain = true)
+@Schema(description = "返回结果类")
 public class Result<T> implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
+    @Schema(description = "返回码")
     private Integer code = ResultCode.SUCCESS.getCode();
+    @Schema(description = "返回信息")
     private String message  = ResultCode.SUCCESS.getMessage();
+    @Schema(description = "返回数据")
     private T data;
 
     @Contract(" -> new")

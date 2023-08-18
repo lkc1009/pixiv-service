@@ -2,6 +2,7 @@ package com.lkc1009.pixiv.core.xss;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletRequestWrapper;
 import org.jetbrains.annotations.NotNull;
 
@@ -24,6 +25,6 @@ public class XssFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, @NotNull FilterChain filterChain) throws IOException, ServletException {
-        filterChain.doFilter(new XssHttpServletRequestWrapper((HttpServletRequestWrapper) servletRequest), servletResponse);
+        filterChain.doFilter(new XssHttpServletRequestWrapper((HttpServletRequest) servletRequest), servletResponse);
     }
 }

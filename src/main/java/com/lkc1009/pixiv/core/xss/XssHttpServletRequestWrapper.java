@@ -4,6 +4,7 @@ import cn.hutool.http.HtmlUtil;
 import io.micrometer.common.util.StringUtils;
 import jakarta.servlet.ReadListener;
 import jakarta.servlet.ServletInputStream;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletRequestWrapper;
 import lombok.extern.slf4j.Slf4j;
 
@@ -14,7 +15,7 @@ import java.util.Objects;
 @Slf4j
 public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
 
-    public XssHttpServletRequestWrapper(HttpServletRequestWrapper request) {
+    public XssHttpServletRequestWrapper(HttpServletRequest request) {
         super(request);
     }
 

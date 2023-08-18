@@ -13,7 +13,6 @@ import java.io.Serializable;
 
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor
 @Accessors(chain = true)
 public class BaseEntity implements Serializable {

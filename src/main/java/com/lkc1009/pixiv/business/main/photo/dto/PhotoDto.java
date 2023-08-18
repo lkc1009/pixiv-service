@@ -10,7 +10,6 @@ import java.io.Serializable;
 
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor
 @Accessors(chain = true)
 public class PhotoDto implements Serializable {

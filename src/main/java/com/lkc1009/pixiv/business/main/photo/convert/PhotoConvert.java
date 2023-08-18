@@ -10,11 +10,8 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface PhotoConvert extends Converter<Photo, PhotoDto> {
+
     @Override
-    @Mappings({
-            @Mapping(target = "id", expression = "java(photo.id())"),
-            @Mapping(target = "title", expression = "java(photo.title())")
-    })
     PhotoDto convert(@NotNull Photo photo);
 
     List<PhotoDto> convert(@NotNull List<Photo> photoList);

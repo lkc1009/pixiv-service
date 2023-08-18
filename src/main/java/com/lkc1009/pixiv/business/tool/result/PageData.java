@@ -1,6 +1,7 @@
 package com.lkc1009.pixiv.business.tool.result;
 
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -9,7 +10,6 @@ import java.io.Serial;
 import java.io.Serializable;
 
 @Setter
-@Builder
 @NoArgsConstructor
 @Accessors(chain = true)
 public class PageData<T> implements Serializable {

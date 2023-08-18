@@ -8,7 +8,6 @@ import lombok.experimental.Accessors;
 
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor
 @Accessors(chain = true)
 public class PhotoParam {

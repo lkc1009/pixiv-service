@@ -20,10 +20,9 @@ public class PageIntercept implements HandlerInterceptor {
         String pageSize = request.getParameter(Page.PAGE_SIZE_PARAM);
         if (StringUtils.isNotEmpty(page) &&  StringUtils.isNotEmpty(pageSize)) {
             try {
-                PageThreadLocal.setPage(Page.builder()
-                        .page(Integer.parseInt(page))
-                        .pageSize(Integer.parseInt(pageSize))
-                        .build());
+                PageThreadLocal.setPage(new Page()
+                        .setPage(Integer.parseInt(page))
+                        .setPageSize(Integer.parseInt(pageSize)));
             } catch (NumberFormatException e) {
                 log.info("page or pageSize is not number");
             }

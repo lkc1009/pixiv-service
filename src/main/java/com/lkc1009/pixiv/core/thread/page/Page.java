@@ -11,7 +11,6 @@ import java.io.Serializable;
 
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor
 @Accessors(chain = true)
 public class Page implements Serializable {

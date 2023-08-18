@@ -2,27 +2,15 @@ package com.lkc1009.pixiv.business.tool.convert;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lkc1009.pixiv.business.tool.result.PageData;
-import org.mapstruct.*;
+import org.jetbrains.annotations.NotNull;
+import org.springframework.stereotype.Component;
 
-import java.util.List;
-
-@Mapper(componentModel = "spring")
-public interface PageConvert<S, T> {
-    @Mappings({
-            @Mapping(target = "page", expression = "java(iPage.getCurrent())"),
-            @Mapping(target = "pageSize", expression = "java(iPage.getSize())"),
-            @Mapping(target = "total", expression = "java(iPage.getTotal())"),
-            @Mapping(target = "data", ignore = true)
-    })
-    PageData<T> convert(IPage<S> iPage);
-
-    @BeforeMapping
-    default void beforeConvert(IPage<S> iPage, @MappingTarget PageData<T> pageData) {
-
-    }
-
-    @AfterMapping
-    default void afterConvert(IPage<S> iPage, @MappingTarget PageData<T> pageData) {
-
+@Component
+public class PageConvert<S, T> {
+    public PageData<T> convert(@NotNull IPage<S> iPage) {
+        return new PageData<T>()
+                .setPage(Math.toIntExact(iPage.getPages()))
+                .setPageSize(Math.toIntExact(iPage.getSize()))
+                .setTotal(Math.toIntExact(iPage.getTotal()));
     }
 }

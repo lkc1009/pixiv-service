@@ -3,6 +3,7 @@ package com.lkc1009.pixiv.business.main.photo.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lkc1009.pixiv.business.main.photo.dto.param.PhotoParam;
 import com.lkc1009.pixiv.business.main.photo.model.Photo;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

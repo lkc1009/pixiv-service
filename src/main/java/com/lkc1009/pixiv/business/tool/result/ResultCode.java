@@ -4,6 +4,7 @@ package com.lkc1009.pixiv.business.tool.result;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 
@@ -11,7 +12,7 @@ import java.io.Serial;
 import java.io.Serializable;
 
 @Getter
-@Builder
+@Setter
 @NoArgsConstructor
 @Accessors(chain = true)
 public class ResultCode implements Serializable {
@@ -22,7 +23,7 @@ public class ResultCode implements Serializable {
     private String message;
 
     private static ResultCode dispose(@NotNull ResultCodeEnum resultCodeEnum) {
-        return ResultCode.builder().code(resultCodeEnum.code()).message(resultCodeEnum.message()).build();
+        return new ResultCode().setCode(resultCodeEnum.code()).setMessage(resultCodeEnum.message());
     }
 
     public static final ResultCode SUCCESS = dispose(ResultCodeEnum.SUCCESS);

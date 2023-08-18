@@ -1,3 +1,9 @@
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 1500MB
+      max-request-size: 1500MB

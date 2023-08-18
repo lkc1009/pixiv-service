@@ -22,5 +22,5 @@ public class Page implements Serializable {
     private Integer pageSize;
 
     public static final String PAGE_PARAM = "page";
-    public static final String PAGE_SIZE_PARAM = "page_size";
+    public static final String PAGE_SIZE_PARAM = "pageSize";
 }

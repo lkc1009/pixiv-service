@@ -1,6 +1,7 @@
 package com.lkc1009.pixiv.business.main.photo.model;
 
 import com.lkc1009.pixiv.business.base.BaseEntity;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,6 +9,7 @@ import lombok.experimental.Accessors;
 
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @Accessors(fluent = true)
 public class Photo extends BaseEntity {

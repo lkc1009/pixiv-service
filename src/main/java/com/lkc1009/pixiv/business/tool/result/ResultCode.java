@@ -3,6 +3,7 @@ package com.lkc1009.pixiv.business.tool.result;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 
@@ -11,6 +12,7 @@ import java.io.Serializable;
 
 @Getter
 @Builder
+@NoArgsConstructor
 @Accessors(fluent = true)
 public class ResultCode implements Serializable {
     @Serial

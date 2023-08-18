@@ -2,7 +2,9 @@ package com.lkc1009.pixiv.business.base;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
@@ -11,6 +13,8 @@ import java.io.Serializable;
 
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
 @Accessors(fluent = true)
 public class BaseEntity implements Serializable {
     @Serial

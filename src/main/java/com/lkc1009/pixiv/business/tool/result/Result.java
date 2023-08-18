@@ -1,6 +1,7 @@
 package com.lkc1009.pixiv.business.tool.result;
 
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
@@ -10,9 +11,9 @@ import java.io.Serializable;
 
 @Setter
 @Builder
+@NoArgsConstructor
 @Accessors(fluent = true)
 public class Result<T> implements Serializable {
-
     @Serial
     private static final long serialVersionUID = 1L;
 

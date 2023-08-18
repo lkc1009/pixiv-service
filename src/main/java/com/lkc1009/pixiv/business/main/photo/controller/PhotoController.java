@@ -9,28 +9,47 @@ import com.lkc1009.pixiv.business.main.photo.service.PhotoService;
 import com.lkc1009.pixiv.business.tool.convert.PageConvert;
 import com.lkc1009.pixiv.business.tool.result.PageData;
 import com.lkc1009.pixiv.business.tool.result.Result;
+import com.lkc1009.pixiv.framework.validation.ValidGroup;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("photo")
+@Validated
+@RestController("/photo")
 @AllArgsConstructor
 public class PhotoController {
     private final PhotoService photoService;
     private final PageConvert<Photo, List<PhotoDto>> pageConvert;
     private final PhotoConvert photoConvert;
 
-    @GetMapping("/listPhoto")
+    @GetMapping("/list/photo")
     public Result<List<PhotoDto>> listPhoto(PhotoParam photoParam) {
         return Result.success(photoConvert.convert(photoService.listPhoto(photoParam)));
     }
 
-    @GetMapping("/listPagePhoto")
+    @GetMapping("/list/page/photo")
     public Result<PageData<List<PhotoDto>>> listPagePhoto(PhotoParam photoParam) {
         IPage<Photo> photoIPage = photoService.listPagePhoto(photoParam);
         return Result.success(pageConvert.convert(photoIPage)
                 .setData(photoConvert.convert(photoIPage.getRecords())));
     }
+
+    @PostMapping("/add/photo")
+    public <T> Result <T> addPhoto(@Validated({ ValidGroup.Insert.class }) @RequestBody Photo photo) {
+        return Result.success();
+    }
+
+    @DeleteMapping("/delete/photo/{id}")
+    public <T> Result <T> deletePhoto(@PathVariable("id") @NotNull(message = "id is not null") Long id) {
+        return Result.success();
+    }
+
+    @PutMapping("/update/photo")
+    public <T> Result <T> updatePhoto(@Validated({ ValidGroup.Update.class }) @RequestBody Photo photo) {
+        return Result.success();
+    }
+
 }

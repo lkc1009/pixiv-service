@@ -13,7 +13,7 @@ public interface PhotoService {
 
     Integer addPhoto(Photo photo);
 
-    Integer deletePhoto(Photo photo);
+    Integer deletePhoto(Long id);
 
     Integer updatePhoto(Photo photo);
 

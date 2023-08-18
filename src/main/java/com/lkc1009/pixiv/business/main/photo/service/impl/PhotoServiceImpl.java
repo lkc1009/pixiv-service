@@ -40,8 +40,8 @@ public class PhotoServiceImpl implements PhotoService {
     }
 
     @Override
-    public Integer deletePhoto(Photo photo) {
-        return photoMapper.deleteById(photo);
+    public Integer deletePhoto(Long id) {
+        return photoMapper.deleteById(id);
     }
 
     @Override

@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Setter
 @Builder
 @NoArgsConstructor
-@Accessors(fluent = true)
+@Accessors(chain = true)
 public class PhotoDto implements Serializable {
     private Long id;
     private String title;

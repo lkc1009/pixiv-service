@@ -12,15 +12,15 @@ import java.io.Serializable;
 @Setter
 @Builder
 @NoArgsConstructor
-@Accessors(fluent = true)
+@Accessors(chain = true)
 public class Result<T> implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
     @Builder.Default
-    private Integer code = ResultCode.SUCCESS.code();
+    private Integer code = ResultCode.SUCCESS.getCode();
     @Builder.Default
-    private String message  = ResultCode.SUCCESS.message();
+    private String message  = ResultCode.SUCCESS.getMessage();
     private T data;
 
     public static <T> Result<T> success() {
@@ -36,30 +36,30 @@ public class Result<T> implements Serializable {
 
     public static <T> Result<T> success(@NotNull ResultCode resultCode) {
         return Result.<T>builder()
-                .code(resultCode.code())
-                .message(resultCode.message())
+                .code(resultCode.getCode())
+                .message(resultCode.getMessage())
                 .build();
     }
 
     public static <T> Result<T> success(@NotNull ResultCode resultCode, T data) {
         return Result.<T>builder()
-                .code(resultCode.code())
-                .message(resultCode.message())
+                .code(resultCode.getCode())
+                .message(resultCode.getMessage())
                 .data(data)
                 .build();
     }
 
     public static <T> Result<T> error() {
         return Result.<T>builder()
-                .code(ResultCode.ERROR.code())
-                .message(ResultCode.ERROR.message())
+                .code(ResultCode.ERROR.getCode())
+                .message(ResultCode.ERROR.getMessage())
                 .build();
     }
 
     public static <T> Result<T> error(@NotNull ResultCode resultCode) {
         return Result.<T>builder()
-                .code(resultCode.code())
-                .message(resultCode.message())
+                .code(resultCode.getCode())
+                .message(resultCode.getMessage())
                 .build();
     }
 

@@ -10,7 +10,7 @@ import lombok.experimental.Accessors;
 @Setter
 @Builder
 @NoArgsConstructor
-@Accessors(fluent = true)
+@Accessors(chain = true)
 public class PhotoParam {
     private String title;
     private Long userId;

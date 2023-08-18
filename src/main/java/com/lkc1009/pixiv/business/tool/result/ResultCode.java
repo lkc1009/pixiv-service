@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Getter
 @Builder
 @NoArgsConstructor
-@Accessors(fluent = true)
+@Accessors(chain = true)
 public class ResultCode implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;

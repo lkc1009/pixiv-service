@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Setter
 @Builder
 @NoArgsConstructor
-@Accessors(fluent = true)
+@Accessors(chain = true)
 public class BaseEntity implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;

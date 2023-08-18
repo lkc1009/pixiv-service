@@ -31,6 +31,6 @@ public class PhotoController {
     public Result<PageData<List<PhotoDto>>> listPagePhoto(PhotoParam photoParam) {
         IPage<Photo> photoIPage = photoService.listPagePhoto(photoParam);
         return Result.success(pageConvert.convert(photoIPage)
-                .data(photoConvert.convert(photoIPage.getRecords())));
+                .setData(photoConvert.convert(photoIPage.getRecords())));
     }
 }

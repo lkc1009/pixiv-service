@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 @Slf4j
 public class Compress {
     public static void compressPicForScale(String srcPath, String desPath, Long desFileSize, Long accuracy) {
-        if (StringUtils.isEmpty(srcPath) || StringUtils.isEmpty(desPath)) {
+        if (StringUtils.isBlank(srcPath) || StringUtils.isBlank(desPath)) {
             return;
         }
 

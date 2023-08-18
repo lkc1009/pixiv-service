@@ -11,7 +11,7 @@ import lombok.experimental.Accessors;
 @Setter
 @Builder
 @NoArgsConstructor
-@Accessors(fluent = true)
+@Accessors(chain = true)
 public class Photo extends BaseEntity {
     /**
      * 图片标题

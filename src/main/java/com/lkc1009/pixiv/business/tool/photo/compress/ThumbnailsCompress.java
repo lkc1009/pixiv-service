@@ -1,9 +1,11 @@
-package com.lkc1009.pixiv.business.tool.photo;
+package com.lkc1009.pixiv.business.tool.photo.compress;
 
 import cn.hutool.core.io.FileUtil;
+import com.lkc1009.pixiv.business.tool.photo.AbstractCompress;
 import io.micrometer.common.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnails;
+import org.springframework.stereotype.Component;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -13,7 +15,8 @@ import java.math.BigDecimal;
 
 
 @Slf4j
-public class Compress {
+@Component
+public final class ThumbnailsCompress extends AbstractCompress {
     public static void compressPicForScale(String srcPath, String desPath, Long desFileSize, Long accuracy) {
         if (StringUtils.isBlank(srcPath) || StringUtils.isBlank(desPath)) {
             return;

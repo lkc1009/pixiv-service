@@ -23,3 +23,16 @@ spring:
 server:
   servlet:
     context-path: /pixiv
+
+springdoc:
+  swagger-ui:
+    path:  /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn

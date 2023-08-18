@@ -19,3 +19,7 @@ spring:
     username: root
     password: LKCzka2233
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+server:
+  servlet:
+    context-path: /pixiv

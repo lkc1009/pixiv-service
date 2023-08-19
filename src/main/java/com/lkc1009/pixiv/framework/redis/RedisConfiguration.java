@@ -29,7 +29,7 @@ public class RedisConfiguration {
         objectMapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance,
                 ObjectMapper.DefaultTyping.NON_FINAL, JsonTypeInfo.As.PROPERTY);
 
-//        SpringBoot 2.3 After
+//        SpringBoot 2.3 Before
 //        Jackson2JsonRedisSerializer => GenericJackson2JsonRedisSerializer
 //        objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
 //        Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);

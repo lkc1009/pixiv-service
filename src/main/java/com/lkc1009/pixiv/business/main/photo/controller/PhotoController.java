@@ -1,7 +1,6 @@
 package com.lkc1009.pixiv.business.main.photo.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.lkc1009.pixiv.business.base.BaseController;
 import com.lkc1009.pixiv.business.main.photo.convert.PhotoConvert;
 import com.lkc1009.pixiv.business.main.photo.dto.PhotoDto;
 import com.lkc1009.pixiv.business.main.photo.dto.param.PhotoParam;
@@ -27,7 +26,7 @@ import java.util.List;
 @RequestMapping("/photo")
 @RequiredArgsConstructor
 @Tag(name = "图片", description = "图片相关接口")
-public class PhotoController extends BaseController {
+public class PhotoController {
     private final PhotoService photoService;
     private final PageConvert<Photo, List<PhotoDto>> pageConvert;
     private final PhotoConvert photoConvert;
@@ -54,20 +53,23 @@ public class PhotoController extends BaseController {
     @PostMapping("/add/photo")
     @Operation(summary = "添加图片")
     public <T> Result <T> addPhoto(@Validated({ ValidGroup.Insert.class }) @RequestBody Photo photo) {
-        return single(photoService.addPhoto(photo));
+        photoService.addPhoto(photo);
+        return Result.success();
     }
 
     @DeleteMapping("/delete/photo/{id}")
     @Operation(summary = "删除图片")
     @Parameter(name = "id", description = "图片id", required = true)
     public <T> Result <T> deletePhoto(@PathVariable("id") @NotNull(message = "id is not null") Long id) {
-        return single(photoService.deletePhoto(id));
+        photoService.deletePhoto(id);
+        return Result.success();
     }
 
     @PutMapping("/update/photo")
     @Operation(summary = "更新图片")
     public <T> Result <T> updatePhoto(@Validated({ ValidGroup.Update.class }) @RequestBody Photo photo) {
-        return single(photoService.updatePhoto(photo));
+        photoService.updatePhoto(photo);
+        return Result.success();
     }
 
 }

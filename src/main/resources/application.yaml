@@ -15,24 +15,46 @@ spring:
       database: 0
 
   datasource:
-    url:  jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: LKCzka2233
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+  security:
+    oauth2:
+      authorizationserver:
+        client:
+          pixiv:
+            registration:
+              client-id: "pixiv"
+              client-secret: "123456"
+              client-authentication-methods:
+                - "client_secret_basic"
+              authorization-grant-types:
+                - "authorization_code"
+                - "refresh_token"
+              redirect-uris:
+                - "http://127.0.0.1:8080/login/oauth2/code/pixiv"
+              post-logout-redirect-uris:
+                - "http://127.0.0.1:8080/pixiv/doc.html"
+              scopes:
+                - "openid"
+                - "profile"
+              require-authorization-consent: true
 
 server:
   servlet:
     context-path: /pixiv
 
 springdoc:
-  swagger-ui:
-    path:  /swagger-ui.html
-    tags-sorter: alpha
-    operations-sorter: alpha
   api-docs:
-    path: /v3/api-docs
+    enabled: true
+  swagger-ui:
+    persist-authorization: true
 
 knife4j:
   enable: true
   setting:
     language: zh_cn
+
+

@@ -60,11 +60,6 @@ knife4j:
   setting:
     language: zh_cn
 
-jwt:
-  screct: "salt"
-  access-token: 2880
-  refresh-token: 2880
-
 logging:
   level:
     org.springframework.security: trace

@@ -21,8 +21,8 @@ import java.util.UUID;
 @Configuration
 @EnableWebSecurity
 public class AuthorizationSecurity {
+
     @Bean
-    @Primary
     public RegisteredClientRepository registeredClientRepository() {
         RegisteredClient registeredClient = RegisteredClient.withId(UUID.randomUUID().toString())
                 .clientId("pixiv")

@@ -36,15 +36,18 @@ spring:
               redirect-uris:
                 - "http://127.0.0.1:8080/pixiv/webjars/oauth/oauth2.html"
               post-logout-redirect-uris:
-                - "http://127.0.0.1:8080/pixiv/doc.html"
+                - "http://127.0.0.1:8080/pixiv"
               scopes:
                 - "openid"
                 - "profile"
+                - "read"
+                - "write"
               require-authorization-consent: true
 
 server:
   servlet:
     context-path: /pixiv
+  address: 127.0.0.1
 
 springdoc:
   api-docs:
@@ -61,6 +64,10 @@ jwt:
   screct: "salt"
   access-token: 2880
   refresh-token: 2880
+
+logging:
+  level:
+    org.springframework.security: trace
 
 
 

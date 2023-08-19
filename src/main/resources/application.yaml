@@ -34,7 +34,7 @@ spring:
                 - "authorization_code"
                 - "refresh_token"
               redirect-uris:
-                - "http://127.0.0.1:8080/login/oauth2/code/pixiv"
+                - "http://127.0.0.1:8080/pixiv/webjars/oauth/oauth2.html"
               post-logout-redirect-uris:
                 - "http://127.0.0.1:8080/pixiv/doc.html"
               scopes:
@@ -56,5 +56,11 @@ knife4j:
   enable: true
   setting:
     language: zh_cn
+
+jwt:
+  screct: "salt"
+  access-token: 2880
+  refresh-token: 2880
+
 
 

@@ -20,7 +20,7 @@ import java.util.UUID;
 
 @Configuration
 @EnableWebSecurity
-public class AuthorizationSecurity {
+public class AuthorizationClientSecurity {
 
     @Bean
     public RegisteredClientRepository registeredClientRepository() {

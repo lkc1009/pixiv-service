@@ -1,7 +1,7 @@
 package com.lkc1009.pixiv.core.security;
 
-import com.lkc1009.pixiv.core.security.exception.JwtAccessDeniedHandler;
-import com.lkc1009.pixiv.core.security.exception.JwtAuthenticationEntryPoint;
+import com.lkc1009.pixiv.core.security.handler.JwtAccessDeniedHandler;
+import com.lkc1009.pixiv.core.security.handler.JwtAuthenticationEntryPoint;
 import com.lkc1009.pixiv.core.security.filter.JwtAuthenticationFilter;
 import com.lkc1009.pixiv.core.security.util.Jwks;
 import com.nimbusds.jose.jwk.JWKSet;
@@ -13,20 +13,15 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.core.oidc.OidcUserInfo;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
@@ -44,13 +39,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
-import java.security.interfaces.RSAPrivateKey;
-import java.security.interfaces.RSAPublicKey;
 import java.time.Duration;
 import java.util.Collections;
-import java.util.UUID;
 import java.util.function.Function;
 
 @Configuration

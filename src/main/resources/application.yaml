@@ -20,6 +20,30 @@ spring:
     password: LKCzka2233
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+  security:
+    oauth2:
+      authorizationserver:
+        client:
+          pixiv:
+            registration:
+              client-id: "pixiv"
+              client-secret: "123456"
+              client-authentication-methods:
+                - "client_secret_basic"
+              authorization-grant-types:
+                - "authorization_code"
+                - "refresh_token"
+              redirect-uris:
+                - "http://127.0.0.1:8080/pixiv/webjars/oauth/oauth2.html"
+              post-logout-redirect-uris:
+                - "http://127.0.0.1:8080/pixiv"
+              scopes:
+                - "openid"
+                - "profile"
+                - "read"
+                - "write"
+              require-authorization-consent: true
+
 server:
   servlet:
     context-path: /pixiv

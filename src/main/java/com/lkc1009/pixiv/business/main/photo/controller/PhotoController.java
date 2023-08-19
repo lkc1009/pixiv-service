@@ -14,10 +14,9 @@ import com.lkc1009.pixiv.core.thread.page.Page;
 import com.lkc1009.pixiv.framework.validation.ValidGroup;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +25,7 @@ import java.util.List;
 @Validated
 @RestController
 @RequestMapping("/photo")
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Tag(name = "图片", description = "图片相关接口")
 public class PhotoController extends BaseController {
     private final PhotoService photoService;

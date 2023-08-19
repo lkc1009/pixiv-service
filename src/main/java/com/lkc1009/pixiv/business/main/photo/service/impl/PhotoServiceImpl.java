@@ -10,6 +10,7 @@ import com.lkc1009.pixiv.business.main.photo.service.PhotoService;
 import com.lkc1009.pixiv.core.thread.page.PageThreadLocal;
 import io.micrometer.common.util.StringUtils;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class PhotoServiceImpl implements PhotoService {
     private final PhotoMapper photoMapper;
 
